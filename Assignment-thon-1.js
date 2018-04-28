@@ -1,4 +1,5 @@
 let cars = {
+  
   sedan : {
     price : 30,
     stock: 0,
@@ -7,6 +8,7 @@ let cars = {
       return "Sedan: Not Available";
     }
   },
+  
   suv : {
     price : 35,
     stock : 10,
@@ -15,6 +17,7 @@ let cars = {
       return "suv: Not Available";
     }
   },
+  
   sports : {
     price : 40,
     stock : 5,
@@ -22,7 +25,19 @@ let cars = {
       if (this.stock > 0) return "sports: Available";
       return "sports: Not Available";
     }
+  },
+  
+  rent(car){
+    if(this[car]){
+      this[car].stock --;
+      return car, "rented";
+    } else {
+      return "not a car";
+    }
   }
+  
 };
 
-console.log(cars.sedan.isAvailable());
+console.log(cars.sports.stock);
+console.log(cars.rent('sports'));
+console.log(cars.sports.stock);
