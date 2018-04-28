@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 
 function main() {
   console.log("In stock we have:\n" + Cars.stock());
-  rl.question("what kind of car do you want to rent?\n", (car) => {
+  rl.question("what kind of car do you want to rent?\n\n", (car) => {
     Cars.rent(car);
   });
 };
@@ -46,11 +46,11 @@ let Cars = {
         console.log(`${car} rented`);
         rl.close()
       } else {
-        console.log('Car Unavailable');
+        console.log('Car Unavailable\n\n');
         main();
       }
     } else {
-      console.log("not a car");
+      console.log("not a car\n\n");
       main();
     }
   }
