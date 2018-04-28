@@ -17,8 +17,8 @@ let cars = {
   
   isAvailable(car) {
     if(this[car]) {
-      if (this[car].stock > 0) return "sports: Available";
-      return "sports: Not Available";
+      if (this[car].stock > 0) return true;
+      return false;
     }
     else {
       return "Not a car";
@@ -27,8 +27,12 @@ let cars = {
   
   rent(car){
     if(this[car]){
-      this[car].stock --;
-      return `${car} rented`;
+      if(cars.isAvailable(car)) {
+        this[car].stock --;
+        return `${car} rented`;
+      } else {
+        return 'Car Unavailable';
+      }
     } else {
       return "not a car";
     }
