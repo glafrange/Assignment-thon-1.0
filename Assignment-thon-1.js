@@ -13,7 +13,6 @@ let cars = {
   sports : {
     price : 40,
     stock : 5,
-    
   },
   
   isAvailable(car) {
@@ -34,7 +33,6 @@ let cars = {
       return "not a car";
     }
   }
-  
 };
 
 console.log(cars.isAvailable('sports'));
