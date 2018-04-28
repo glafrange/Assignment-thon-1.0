@@ -1,3 +1,17 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+function main() {
+  console.log("In stock we have:\n" + Cars.stock());
+  rl.question("what kind of car do you want to rent?\n", (car) => {
+    Cars.rent(car);
+  });
+};
+
 let Cars = {
   
   categories : ['sedan', 'suv', 'sports'],
@@ -29,17 +43,19 @@ let Cars = {
     if(this[car] && typeof car === 'string'){
       if(this[car].stock > 0) {
         this[car].stock --;
-        return `${car} rented`;
+        console.log(`${car} rented`);
+        rl.close()
       } else {
-        return 'Car Unavailable';
+        console.log('Car Unavailable');
+        main();
       }
     } else {
-      return "not a car";
+      console.log("not a car");
+      main();
     }
   }
 };
 
-console.log(Cars.stock());
-console.log(Cars.sports.stock);
-console.log(Cars.rent('sports'));
-console.log(Cars.stock());
+
+
+main();
