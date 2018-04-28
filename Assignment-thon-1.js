@@ -26,7 +26,7 @@ let Cars = {
   },
   
   rent(car){
-    if(this[car]){
+    if(this[car] && typeof car === 'string'){
       if(this.isAvailable(car)) {
         this[car].stock --;
         return `${car} rented`;
