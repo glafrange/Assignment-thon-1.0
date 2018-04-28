@@ -1,5 +1,7 @@
 let Cars = {
   
+  categories : ['sedan', 'suv', 'sports'],
+  
   sedan : {
     price : 30,
     stock: 0,
@@ -15,19 +17,17 @@ let Cars = {
     stock : 5,
   },
   
-  isAvailable(car) {
-    if(this[car]) {
-      if (this[car].stock > 0) return true;
-      return false;
+  stock() {
+    let numAvailable = "";
+    for(let i in this.categories){
+      numAvailable += this.categories[i] + ": " + this[this.categories[i]].stock + ", ";
     }
-    else {
-      return "Not a car";
-    }
+    return numAvailable;
   },
   
   rent(car){
     if(this[car] && typeof car === 'string'){
-      if(this.isAvailable(car)) {
+      if(this[car].stock > 0) {
         this[car].stock --;
         return `${car} rented`;
       } else {
@@ -39,7 +39,7 @@ let Cars = {
   }
 };
 
-console.log(Cars.isAvailable('sports'));
+console.log(Cars.stock());
 console.log(Cars.sports.stock);
 console.log(Cars.rent('sports'));
-console.log(Cars.sports.stock);
+console.log(Cars.stock());
