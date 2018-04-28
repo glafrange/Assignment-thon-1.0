@@ -1,4 +1,4 @@
-let cars = {
+let Cars = {
   
   sedan : {
     price : 30,
@@ -27,7 +27,7 @@ let cars = {
   
   rent(car){
     if(this[car]){
-      if(cars.isAvailable(car)) {
+      if(this.isAvailable(car)) {
         this[car].stock --;
         return `${car} rented`;
       } else {
@@ -39,7 +39,7 @@ let cars = {
   }
 };
 
-console.log(cars.isAvailable('sports'));
-console.log(cars.sports.stock);
-console.log(cars.rent('sports'));
-console.log(cars.sports.stock);
+console.log(Cars.isAvailable('sports'));
+console.log(Cars.sports.stock);
+console.log(Cars.rent('sports'));
+console.log(Cars.sports.stock);
